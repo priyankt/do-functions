@@ -133,6 +133,15 @@ class PGHolidayStore:
         self.db.commit()
 
     def query_existing_holiday_dates(self) -> typing.List[str]:
+        """fetch holidays from store
+
+        Args:
+            None
+        Returns:
+            List of string dates
+        Raises:
+            None
+        """
         existing_holiday_tuples: typing.List[typing.Tuple[datetime.date, None]] = (
             self.db.query(DBHoliday)
             .with_entities(DBHoliday.date)

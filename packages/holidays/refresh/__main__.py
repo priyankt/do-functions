@@ -23,6 +23,16 @@ def main(args: typing.Dict[str, typing.Any] = {}):
 
 
 def refresh_holidays(fetcher: schemas.HolidayFetcher, store: schemas.HolidayStore):
+    """fetch holidays from api and store
+
+    Args:
+        fetcher: holiday fetcher
+        store: holiday store
+    Returns:
+        None
+    Raises:
+        None
+    """
     holidays: typing.List[schemas.Holiday] = fetcher.fetch_holidays()
     store.store_holidays(holidays)
 
